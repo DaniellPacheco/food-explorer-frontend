@@ -21,8 +21,8 @@ export default createGlobalStyle`
 
 
   body {
-    background-color: ${({ theme }) => theme.COLORS.GRAY_900};
-    color: ${({ theme }) => theme.COLORS.WHITE};
+    background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    color: ${({ theme }) => theme.COLORS.LIGTH_100};
     -webkit-font-smoothing: antialiased;
   }
 
