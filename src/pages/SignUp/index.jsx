@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { useAuth } from '../../hooks/auth';
+import { api } from "../../services/api";
 
 import { Container, Form, Logo } from "./styles";
 
@@ -12,14 +12,15 @@ import { Button } from '../../components/Button';
 import logo from "../../assets/logo.svg";
 
 export default function SignIn() {
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const { signIn } = useAuth();
+    // const navigate = useNavigate();
 
-    function handleSignIn() {
-        if (!email || !password) {
+    function handleSignUp() {
+        if (!name || !email || !password) {
             return alert("Preencha todos os campos!");
         }
 
@@ -33,7 +34,19 @@ export default function SignIn() {
 
         setLoading(true);
 
-        signIn({ email, password }).finally(() => setLoading(false));
+        api.post("/users", { name, email, password })
+            .then(() => {
+                alert("Usuário criado com sucesso!");
+                // navigate(-1);
+            })
+            .catch((error) => {
+                if (error.response) {
+                    alert(error.response.data.message);
+                } else {
+                    alert("Não foi possível cadastrar o usuário!");
+                }
+            })
+            .finally(() => setLoading(false));
     }
 
     return (
@@ -43,7 +56,15 @@ export default function SignIn() {
             </Logo>
 
             <Form>
-                <h2>Faça seu login</h2>
+                <h2>Crie sua conta</h2>
+
+                <Section title="Name">
+                    <Input
+                        placeholder="Exemplo: Maria da Silva"
+                        type="text"
+                        onChange={e => setName(e.target.value)}
+                    />
+                </Section>
 
                 <Section title="Email">
                     <Input
@@ -61,7 +82,7 @@ export default function SignIn() {
                     />
                 </Section>
 
-                <Button title="Entrar" onClick={handleSignIn} loading={loading} />
+                <Button title="Entrar" onClick={handleSignUp} loading={loading} />
 
                 {/* <Link to="/">
                     Criar uma conta
