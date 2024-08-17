@@ -7,28 +7,22 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  ::-webkit-scrollbar {
-  width: 8px;
-  }
+  :root {
+    font-size: 62.5%;
 
-  ::-webkit-scrollbar-track {
-    background-color: #2c2c31;
+    --swiper-navigation-size: 4rem;
+    --swiper-theme-color: ${({ theme }) => theme.COLORS.LIGTH_100};
   }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #9e9ea0;
-  }
-
 
   body {
-    background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    background-color: ${({ theme }) => theme.COLORS.DARK_400};
     color: ${({ theme }) => theme.COLORS.LIGTH_100};
     -webkit-font-smoothing: antialiased;
   }
 
   body, input, button, textarea {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     outline: none;
   }
 
