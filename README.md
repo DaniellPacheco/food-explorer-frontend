@@ -1,5 +1,5 @@
 <h1 align="center" style="text-align: center;">
-  <img alt="Logo do Food Explorer" src="./src/assets/favicon.svg" style="vertical-align: middle; margin-right: 10px;">
+  <img alt="Logo do Food Explorer" src="./favicon.svg" style="vertical-align: middle; margin-right: 10px;">
   Food Explorer
 </h1>
 
@@ -37,7 +37,7 @@ A aplicação conta com as seguintes páginas:
 - Editar prato
 - Favoritos
 
-!["Página home"](./src/assets/home.png)
+!["Página home"](./home.png)
 
 <h2 id="features">🛠️ Funcionalidades</h2>
 
