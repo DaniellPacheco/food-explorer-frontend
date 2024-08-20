@@ -17,7 +17,7 @@ export default function SignIn() {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     function handleSignUp() {
         if (!name || !email || !password) {
@@ -37,7 +37,7 @@ export default function SignIn() {
         api.post("/users", { name, email, password })
             .then(() => {
                 alert("Usuário criado com sucesso!");
-                // navigate(-1);
+                navigate(-1);
             })
             .catch((error) => {
                 if (error.response) {
@@ -82,11 +82,11 @@ export default function SignIn() {
                     />
                 </Section>
 
-                <Button title="Entrar" onClick={handleSignUp} loading={loading} />
+                <Button title="Criar conta" onClick={handleSignUp} loading={loading} />
 
-                {/* <Link to="/">
-                    Criar uma conta
-                </Link> */}
+                <Link to="/">
+                    Já tenho uma conta
+                </Link>
             </Form>
         </Container>
     );

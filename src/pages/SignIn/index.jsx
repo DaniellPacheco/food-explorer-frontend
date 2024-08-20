@@ -63,9 +63,9 @@ export default function SignIn() {
 
                 <Button title="Entrar" onClick={handleSignIn} loading={loading} />
 
-                {/* <Link to="/">
+                <Link to="/register">
                     Criar uma conta
-                </Link> */}
+                </Link>
             </Form>
         </Container>
     );

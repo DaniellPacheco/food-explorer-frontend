@@ -15,13 +15,15 @@ function AuthProvider({ children }) {
 
     async function signIn({ email, password }) {
         try {
-            const response = await api.post("sessions", { email, password }, { withCredentials: true }); // withCredentials: true - backend troca informação com o frontend passando o cookie
+            const response = await api.post("session", { email, password }, { withCredentials: true }); // withCredentials: true - backend troca informação com o frontend passando o cookie
             const { user } = response.data;
 
             localStorage.setItem("@food:user", JSON.stringify(user));
 
 
             setData({ user });
+
+            console.log(user)
 
         } catch (error) {
             if (error.response) {

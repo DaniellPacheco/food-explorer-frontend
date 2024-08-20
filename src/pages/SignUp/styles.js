@@ -58,7 +58,7 @@ export const Form = styled.div`
     }
 
     > a {
-        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        color: ${({ theme }) => theme.COLORS.LIGTH_100};
         text-align: center;
         font-family: "Poppins", sans-serif;
         font-size: 1.4rem;
