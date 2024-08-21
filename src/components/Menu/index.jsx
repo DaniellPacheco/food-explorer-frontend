@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +9,7 @@ import { Container } from "./styles";
 import { Header } from '../../components/Header';
 import { Search } from "../Search";
 import { ButtonText } from "../ButtonText";
-export function menu({ isAdmin, isMenuOpen, setIsMenuOpen, setSearch, isDisabled }) {
+export function Menu({ isAdmin, isMenuOpen, setIsMenuOpen, setSearch, isDisabled }) {
 
     const { signOut } = useAuth();
     const navigate = useNavigate();
@@ -27,7 +28,7 @@ export function menu({ isAdmin, isMenuOpen, setIsMenuOpen, setSearch, isDisabled
     }
 
     return (
-        <Container isMenuOpen={isMenuOpen}>
+        <Container isMenuOpen={isMenuOpen.toString()}>
             <Header isAdmin={isAdmin} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
             <main>

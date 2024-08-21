@@ -11,8 +11,6 @@ import AdminRoutes from "./admin.routes";
 export function Routes() {
     const { user, signOut } = useAuth();
 
-    // console.log(user.is_admin);
-
     useEffect(() => {
         api.get("/users/validated").catch((error) => {
             if (error.response?.status === 401) {
