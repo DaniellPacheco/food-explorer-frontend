@@ -36,8 +36,6 @@ export default function Home({ isAdmin, user_id }) {
             const sobremesas = response.data.filter(dish => dish.category === "sobremesa");
             const bebidas = response.data.filter(dish => dish.category === "bebida");
 
-            console.log(response)
-
             setRefeicoes(refeicoes)
             setSobremesas(sobremesas);
             setBebidas(bebidas);
