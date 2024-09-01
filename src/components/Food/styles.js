@@ -30,7 +30,7 @@ export const Container = styled.div`
 
   > img {
     max-width: 8.8rem;
-    margin-top: ${({ isAdmin }) => isAdmin ? "4.6rem" : "none"};
+    margin-top: ${({ $isadmin }) => $isadmin ? "4.6rem" : "none"};
 
     cursor: pointer;
   }
@@ -39,7 +39,7 @@ export const Container = styled.div`
     line-height: 100%;
     color: ${({ theme }) => theme.COLORS.CAKE_100};
 
-    margin-bottom: ${({ isAdmin }) => isAdmin ? "4.6rem" : "none"};
+    margin-bottom: ${({ $isadmin }) => $isadmin ? "4.6rem" : "none"};
   }
 
   @media (min-width: 1024px) {

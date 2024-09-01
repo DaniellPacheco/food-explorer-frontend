@@ -9,7 +9,6 @@ const AuthContext = createContext({});
 
 import { api } from "../services/api";
 
-// eslint-disable-next-line react/prop-types
 function AuthProvider({ children }) {
     const [data, setData] = useState({});
 
@@ -20,10 +19,7 @@ function AuthProvider({ children }) {
 
             localStorage.setItem("@food:user", JSON.stringify(user));
 
-
             setData({ user });
-
-            console.log(user)
 
         } catch (error) {
             if (error.response) {

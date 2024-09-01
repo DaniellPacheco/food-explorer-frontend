@@ -8,5 +8,5 @@ export function Input({ icon: Icon, ...rest }) {
             {Icon && <Icon size={"2.4rem"} />}
             <input {...rest} />
         </Container>
-    )
+    );
 } 

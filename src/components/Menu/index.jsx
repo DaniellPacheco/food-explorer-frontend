@@ -18,17 +18,13 @@ export function Menu({ isAdmin, isMenuOpen, setIsMenuOpen, setSearch, isDisabled
         navigate("/new");
     }
 
-    function handleFavorites() {
-        navigate("/favorites");
-    }
-
     function handleSignOut() {
         navigate("/");
         signOut();
     }
 
     return (
-        <Container isMenuOpen={isMenuOpen.toString()}>
+        <Container $ismenuopen={isMenuOpen.toString()}>
             <Header isAdmin={isAdmin} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
             <main>
@@ -39,10 +35,6 @@ export function Menu({ isAdmin, isMenuOpen, setIsMenuOpen, setSearch, isDisabled
                         Novo prato
                     </ButtonText>
                 ) : null}
-
-                <ButtonText onClick={handleFavorites}>
-                    Meus favoritos
-                </ButtonText>
 
                 <ButtonText onClick={handleSignOut}>
                     Sair

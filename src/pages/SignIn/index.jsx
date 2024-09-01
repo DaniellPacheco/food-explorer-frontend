@@ -14,7 +14,6 @@ import logo from "../../assets/logo.svg";
 export default function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
 
     const { signIn } = useAuth();
 
@@ -31,9 +30,8 @@ export default function SignIn() {
             return alert("A senha deve ter pelo menos 6 caracteres!");
         }
 
-        setLoading(true);
 
-        signIn({ email, password }).finally(() => setLoading(false));
+        signIn({ email, password });
     }
 
     return (
@@ -61,7 +59,7 @@ export default function SignIn() {
                     />
                 </Section>
 
-                <Button title="Entrar" onClick={handleSignIn} loading={loading} />
+                <Button title="Entrar" onClick={handleSignIn} />
 
                 <Link to="/register">
                     Criar uma conta

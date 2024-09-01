@@ -23,6 +23,7 @@ export const Container = styled.div`
             border-top: 1px solid ${({ theme }) => theme.COLORS.LIGTH_100};
             border-bottom: 1px solid ${({ theme }) => theme.COLORS.LIGTH_100};
             border-radius: 0;
+            border: none;
         }
 
         &:disabled {

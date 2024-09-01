@@ -34,7 +34,7 @@ export default function SignIn() {
 
         setLoading(true);
 
-        api.post("/users", { name, email, password })
+        api.post("/users", { name, email, password }, { withCredentials: true })
             .then(() => {
                 alert("Usuário criado com sucesso!");
                 navigate(-1);

@@ -12,11 +12,12 @@ export const Container = styled.div`
     "header"
     "content";
 
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-
-  visibility: ${({ isMenuOpen }) => (isMenuOpen ? "visible" : "hidden")};
-  opacity: ${({ isMenuOpen }) => (isMenuOpen ? "1" : "0")};
-  transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
+    background-color: ${({ theme }) => theme.COLORS.DARK_400};
+    
+    visibility: ${({ $ismenuopen }) => ($ismenuopen == 'true' ? "visible" : "hidden")};
+    opacity: ${({ $ismenuopen }) => ($ismenuopen == 'true' ? "1" : "0")};
+    transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
+    
 
   > main {
     grid-area: content;

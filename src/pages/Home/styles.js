@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-
   display: grid;
   grid-template-rows: 11.4rem auto 7.7rem;
   grid-template-areas:
@@ -23,23 +22,15 @@ export const Container = styled.div`
       header {
         height: 12rem;
         margin-inline: 1.2rem 1.6rem;
-
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-
-        background: linear-gradient(
-          180deg, 
-          ${({ theme }) => theme.COLORS.GRADIENT_100} 0%, 
-          ${({ theme }) => theme.COLORS.GRADIENT_200} 100%
-        );
+        background: ${({ theme }) => theme.COLORS.GRADIENT_200};
         border-radius: 0.3rem;
-        
         position: relative;
 
         img {
           width: 19.1rem;
-
           position: absolute;
           left: -3rem;
           bottom: 0;
@@ -50,15 +41,12 @@ export const Container = styled.div`
           position: absolute;
           top: 3.6rem;
           right: 2.1rem;
-
           color: ${({ theme }) => theme.COLORS.GRAY_200};
-
           h1 {
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             font-size: 1.8rem;
             line-height: 140%;
-
             margin-bottom: 0.3rem;
           }
 
@@ -78,14 +66,15 @@ export const Container = styled.div`
     > main {
       overflow-y: auto;
 
-      ::-webkit-scrollbar {
+      &::-webkit-scrollbar {
         width: 0.8rem;
       }
 
-      ::-webkit-scrollbar-thumb {
-        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
+      &::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.COLORS.DARK_900};
         border-radius: 0.8rem;
       }
+
 
       > div {
         width: calc(100% - 24.6rem);
@@ -149,6 +138,7 @@ export const Content = styled.div`
 
   swiper-slide {
     max-width: 21rem;
+    max-width: 100px;
   }
 
   @media (min-width: 1024px) {

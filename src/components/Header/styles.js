@@ -24,6 +24,10 @@ export const Container = styled.header`
     gap: 3.2rem;
 
     .favorites {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+
       border: 0;
       background: none;
 

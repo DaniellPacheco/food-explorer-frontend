@@ -15,76 +15,50 @@ import { Container, Title, Order } from "./styles";
 import { NumberPicker } from '../../components/NumberPicker';
 import { Button } from "../../components/Button";
 
-export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails, user_id, ...rest }) {
+export function Food({ data, isAdmin, isFavorite, ...rest }) {
     const isDesktop = useMediaQuery({ minWidth: 1024 });
+
+    const [favorite, setFavorite] = useState(isFavorite);
+    const [favoriteColor, setFavoriteColor] = useState('#00070A');
+    console.log(favorite);
 
     const params = useParams();
     const navigate = useNavigate();
 
     const [number, setNumber] = useState(1);
-    const [cartId, setCartId] = useState(null);
 
-    const [loading, setLoading] = useState(false);
 
-    const handleFavorite = async () => {
-        try {
-            if (isFavorite) {
-                updateFavorite(true, data.id);
-            } else {
-                updateFavorite(false, data.id);
-            }
-        } catch (error) {
-            console.log('Erro ao atualizar favoritos:', error);
+    function handleFavorite() {
+        if (favorite) {
+            setFavoriteColor('#AB4D55')
+            setFavorite(false);
+        } else {
+            setFavoriteColor('#00070A');
+            setFavorite(true);
+
         }
-    };
+    }
 
     function handleEdit() {
         navigate(`/edit/${data.id}`);
     }
 
-    async function handleInclude() {
-        setLoading(true);
-
-        try {
-            const cartItem = {
-                dish_id: data.id,
-                name: data.name,
-                quantity: number,
-            };
-
-            const response = await api.get('/carts', { params: { created_by: user_id } });
-            const cart = response.data[0];
-
-            if (cart) {
-                await api.patch(`/carts/${cart.id}`, { cart_items: [cartItem] });
-            } else {
-                const createResponse = await api.post('/carts', { cart_items: [cartItem], created_by: user_id });
-                const createdCart = createResponse.data;
-
-                setCartId(createdCart.id);
-            }
-
-            alert('Prato adicionado ao carrinho!');
-        } catch (error) {
-            if (error.response) {
-                alert(error.response.data.message);
-            } else {
-                alert('Não foi possível adicionar ao carrinho.');
-                console.log('Erro ao adicionar ao carrinho:', error);
-            }
-        } finally {
-            setLoading(false);
-        }
+    function handleDetails() {
+        navigate(`/dishes/${data.id}`);
     }
 
     return (
-        <Container {...rest} isAdmin={isAdmin.toString()}>
+        <Container
+            {...rest}
+            isadmin={isAdmin}
+        >
             {isAdmin ? (
                 <BiPencil size={"2.4rem"} onClick={handleEdit} />
             ) : (
                 <FiHeart
                     size={"2.4rem"}
-                    fill={isFavorite ? theme.COLORS.GRAY_200 : undefined}
+                    fill={favoriteColor}
+                    // fill={favoriteColor ? '#AB4D55' : '#000'}
                     onClick={handleFavorite}
                 />
             )}
@@ -109,7 +83,7 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
             {!isAdmin &&
                 <Order>
                     <NumberPicker number={number} setNumber={setNumber} />
-                    <Button title="incluir" onClick={handleInclude} loading={loading} />
+                    <Button title="incluir" />
                 </Order>
             }
         </Container>

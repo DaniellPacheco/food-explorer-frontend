@@ -18,15 +18,13 @@ import { Button } from "../../components/Button";
 
 
 export function Header({ isAdmin = false, isDisabled, isMenuOpen, setIsMenuOpen, setSearch }) {
-    const isDesktop = useMediaQuery({ minWidth: 1024 });
-    const logo = isAdmin ? (isDesktop ? brandAdmin : brandAdminMobile) : brand;
+    const desktop = useMediaQuery({ minWidth: 1024 });
+
+    const logo = isAdmin ? (desktop ? brandAdmin : brandAdminMobile) : brand;
 
     const { signOut } = useAuth();
-    const navigate = useNavigate();
 
-    function handleFavorites() {
-        navigate("/favorites");
-    }
+    const navigate = useNavigate();
 
     function handleNew() {
         navigate("/new");
@@ -39,7 +37,7 @@ export function Header({ isAdmin = false, isDisabled, isMenuOpen, setIsMenuOpen,
 
     return (
         <Container>
-            {!isDesktop && (
+            {!desktop && (
                 <Menu>
                     {!isMenuOpen ?
                         <FiMenu className="fi-menu-icon" onClick={() => setIsMenuOpen(true)} /> :
@@ -51,24 +49,31 @@ export function Header({ isAdmin = false, isDisabled, isMenuOpen, setIsMenuOpen,
                 </Menu>
             )}
 
-            {(isDesktop || !isMenuOpen) && (
+            {(desktop || !isMenuOpen) && (
                 <>
                     <Brand>
                         <img src={logo} alt="Logo" />
                     </Brand>
 
-                    {isDesktop && <Search isDisabled={isDisabled} setSearch={setSearch} />}
+                    {desktop && <Search isDisabled={isDisabled} setSearch={setSearch} />}
 
-                    {isDesktop &&
-                        <button className="favorites" onClick={handleFavorites}>Meus favoritos</button>
-                    }
+                    {/* {desktop &&
+                        <button className="favorites" onClick={handleFavorites}>
+                            Favoritos <MdFavorite />
+                        </button>
+                    } */}
 
                     {isAdmin ?
-                        (isDesktop && <Button className="new" title="Novo prato" onClick={handleNew} />) :
-                        <Button className="orders" title={isDesktop ? "Pedidos" : undefined} isCustomer orderCount={0} />
+                        (desktop && <Button className="new" title="Novo prato" onClick={handleNew} />) :
+                        <Button
+                            className="orders"
+                            title={desktop ? "Pedidos" : undefined}
+                            isCustomer
+                            orderCount={0}
+                        />
                     }
 
-                    {isDesktop &&
+                    {desktop &&
                         <Logout onClick={handleSignOut}>
                             <FiLogOut size={"3.2rem"} />
                         </Logout>

@@ -5,7 +5,7 @@ import { Container } from "./styles";
 
 export function FoodItem({ isNew, value, onClick, ...rest }) {
     return (
-        <Container isNew={isNew}>
+        <Container $isnew={Boolean(isNew).toString()}>
             <input type="text" value={value} readOnly={!isNew} {...rest} />
 
             <button
