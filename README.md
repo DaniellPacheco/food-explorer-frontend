@@ -110,14 +110,14 @@ O Food Explorer possui duas personas principais: o admin e o usuário. Você pod
 Admin:
 
 - E-mail: admin@email.com
-- Senha: admin123
+- Senha: admin@123
 
 O admin tem acesso privilegiado e pode gerenciar o cardápio, adicionando, editando e removendo pratos, além de executar outras tarefas administrativas.
 
 Usuário:
 
-- E-mail: user@email.com
-- Senha: user123
+- E-mail: usuario@email.com
+- Senha: usuario@123
 
 O usuário tem acesso restrito às funcionalidades da aplicação, podendo visualizar o cardápio, filtrar pratos, ver detalhes de pratos específicos, favoritar pratos e adicionar pratos ao carrinho.
 
