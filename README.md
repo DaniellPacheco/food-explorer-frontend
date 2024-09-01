@@ -99,8 +99,6 @@ $ npm install
 $ npm run dev
 ```
 
-⚠️ **Importante**: Este projeto utiliza uma hospedagem gratuita para o back-end, portanto, pode haver atrasos no tempo de resposta do servidor.
-
 <h2 id="users">👩🏾‍💻 Personas</h2>
 
 O Food Explorer possui duas personas principais: o admin e o usuário. Você pode criar um novo usuário ou testar a aplicação usando as seguintes informações de login:
