@@ -78,7 +78,7 @@ Certifique-se de ter o ``Node.js`` e o ``npm`` instalados antes de prosseguir co
 1. Clone o projeto:
 
 ```
-$ git clone https://github.com/madalena-rocha/food-explorer-frontend
+$ git clone https://github.com/DaniellPacheco/food-explorer-frontend.git
 ```
 
 2. Acesse a pasta do projeto:
