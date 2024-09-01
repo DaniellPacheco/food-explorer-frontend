@@ -73,7 +73,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 
 <h2 id="usage">💡 Utilização</h2>
 
-Você também pode executá-la em sua máquina localmente. Certifique-se de ter o ``Node.js`` e o ``npm`` instalados antes de prosseguir com as etapas abaixo:
+Certifique-se de ter o ``Node.js`` e o ``npm`` instalados antes de prosseguir com as etapas abaixo:
 
 1. Clone o projeto:
 
